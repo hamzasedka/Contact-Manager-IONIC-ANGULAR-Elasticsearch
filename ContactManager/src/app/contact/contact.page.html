@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+
+    <ion-title>
+      Phone
+    </ion-title>
+  
+</ion-header>
+
+<ion-content class="container" [fullscreen]="true">
+  <div class="outline">
+  <ion-item>
+  <!--<ion-button [routerLink]="['/contact']"   class="search-outline"><ion-icon name="search-outline"></ion-icon></ion-button>
+    <ion-input  (ngModel)="inputValue" type="text" class="SearchInput"></ion-input> -->
+    <ion-button [routerLink]="['/add-new-contact']"class="vertical-outline"><ion-icon name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+
+   
+    
+  </div>
+
+  
+<ion-item-sliding *ngFor="let c of this.callAndsend.arrayContacts" >
+  <ion-item>
+    <ion-label>
+      {{c.displayName}}
+      <p>{{c.phoneNumbers[0]}}</p>
+    </ion-label>
+    <ion-item-option side="end">
+      <ion-item-option class="call" color="secondary" (click)="this.callAndsend.call(c)" >
+        <ion-icon name="call" slot="icon-only"></ion-icon>
+      </ion-item-option>
+      
+      <ion-item-option  class="delete"  (click)="deleteContact(c)"  >
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-item-option>
+    </ion-item-option>
+  </ion-item>
+  
+  
+</ion-item-sliding>
+
+  <div class="segment-container">
+    <ion-segment  color="success" [ngModel]="selectPage">
+      <ion-segment-button [routerLink]="['/home']"  value="Call">
+        <ion-label>Call</ion-label>
+      </ion-segment-button>
+      <ion-segment-button  [routerLink]="['/contact']" value="Contact">
+        <ion-label>Contact</ion-label>
+      </ion-segment-button>
+      <ion-segment-button  [routerLink]="['/message']" value="Message">
+        <ion-label>Message</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-content>

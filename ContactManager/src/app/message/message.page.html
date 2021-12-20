@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+
+  <ion-title>
+    <ion-button [routerLink]="['/home']" class="backbtn"><ion-icon class="backicon" name="chevron-back-outline"></ion-icon></ion-button>
+   New Conversation 
+
+    
+  </ion-title>
+
+  
+  
+</ion-header>
+
+<ion-content class="container" [fullscreen]="true">
+  
+  <div class="InputNumbersContainer">
+    <ion-item>
+      <ion-input [(ngModel)]="myPhoneNumber " class="Emetuer numbersInputs" type="text" placeholder="Emeteur"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input class="Recipient numbersInputs" [(ngModel)]="PhoneNumber" type="text" placeholder="Recipient"></ion-input>
+    </ion-item>
+
+  </div>
+  
+   
+  
+    
+      
+  
+        
+  
+<ion-card  class="messageContainer">
+  <ion-card-content>
+    <ion-row *ngFor="let message of messages" >
+    
+
+      <ion-col offset='3' size="9"  *ngIf="(myPhoneNumber === message._source.myphoneNumber) && (PhoneNumber==message._source.PhoneNumber) " class="message my-message">
+        <b>{{message._source.myphoneNumber}}</b><br>
+        <span>{{message._source.message}}</span><br>
+        <span class="destination">destination:{{message._source.PhoneNumber }}</span>
+        <div class="time" text-right><br>{{message._source.createdAt |date:'short' }}</div><br>
+        
+      </ion-col>
+   
+
+    <ion-col  size="9" *ngIf="(PhoneNumber === message._source.myphoneNumber) &&(myPhoneNumber===message._source.PhoneNumber) "  class="message other-message">
+      <b>{{message._source.myphoneNumber}}</b><br>
+        <span>{{message._source.message}}</span><br>
+        <span class="destination">destination:{{message._source.PhoneNumber }}</span>
+        <div class="time" text-right><br>{{message._source.createdAt |date:'short' }}</div>
+    </ion-col>
+  </ion-row>
+</ion-card-content>
+</ion-card>
+
+
+
+
+ 
+
+ 
+ 
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="fill">
+<ion-row align-items-center no-padding>
+  <ion-col size="10">
+    <textarea autosize maxRows="4" [(ngModel)]="NewMessage" class="messageInput"></textarea>
+  </ion-col>
+  <ion-col size="2">
+    <ion-button (click)="sendToOthers()"  shape="round" fill="color"  [disabled]="NewMessage ==='' || PhoneNumber ==='' || myPhoneNumber ===''" class="message-btn">
+      <ion-icon name="send" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
+  </ion-toolbar>
+</ion-footer>

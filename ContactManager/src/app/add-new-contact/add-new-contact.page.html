@@ -1,0 +1,98 @@
+<ion-header>
+  
+  <ion-title>
+    Phone
+  </ion-title>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col><ion-button [routerLink]="['/contact']"  class="backBtn"><ion-icon  class="backIcon" name="arrow-back-circle"></ion-icon></ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
+<form [formGroup]="form" (ngSubmit)="save()"  >
+
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col><h1 class="FormTitle">Contact</h1></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="formContainer">
+<ion-grid>
+ 
+  <ion-row>
+    
+  
+    <ion-col>
+      <ion-label >FirstName :</ion-label>
+      <ion-input type="text" class="field" placeholder="firstname" formControlName="firstName">
+      </ion-input>
+    </ion-col>
+   
+ 
+  </ion-row>
+  <ion-row>
+    
+
+    <ion-col>
+      <ion-label >LastName :</ion-label>
+      <ion-input type="text" class="field" placeholder="lastname" formControlName="lastName">
+      </ion-input>
+    </ion-col>
+    
+ 
+  </ion-row>
+  <ion-row>
+    
+    <ion-col>
+      <ion-label >PhoneNumber :</ion-label>
+      <ion-input type="text" class="field" placeholder="phonenumber" formControlName="phoneNumber">
+      </ion-input>
+    </ion-col>
+  
+ 
+  </ion-row>
+  <ion-row>
+    
+  
+    <ion-col>
+      <ion-label >Email :</ion-label>
+      <ion-input type="text" class="field" placeholder="email" formControlName="email">
+      </ion-input>
+    </ion-col>
+   
+ 
+  </ion-row>
+  
+  <ion-row>
+    
+    
+    <ion-col>
+      <ion-label >Adresse :</ion-label>
+      <ion-input type="text" class="field" placeholder="adresse" formControlName="adresse">
+      </ion-input>
+    </ion-col>
+   
+ 
+  </ion-row>
+
+  
+</ion-grid>
+
+</div>
+<ion-row>
+  <ion-col></ion-col>
+  <ion-col >
+    <ion-button    [disabled]="!form.valid" class="Create" type="submit" shape="round" >Create</ion-button>
+  </ion-col>
+  <ion-col></ion-col>
+
+</ion-row>
+</form>
+
+</ion-content>

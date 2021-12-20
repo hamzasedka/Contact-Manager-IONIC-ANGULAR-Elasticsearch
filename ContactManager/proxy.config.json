@@ -1,0 +1,8 @@
+{
+    "/contactmanager" :{
+        "target": "http://localhost:9200",
+        "chargeOrigin": "true",
+        "secure": "false",
+        "logLevel": "debug"
+    }
+    }

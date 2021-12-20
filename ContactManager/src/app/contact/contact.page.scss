@@ -1,0 +1,16 @@
+@import '../home/home.page';
+.call,.send,.delete{
+background: transparent;
+}
+.call ion-icon{
+color:green;
+}
+.delete{
+z-index: 5;
+}
+.delete ion-icon{
+pointer-events: none;
+z-index: 4;
+color: red;
+}
+

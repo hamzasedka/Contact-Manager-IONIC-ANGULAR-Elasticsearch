@@ -1,0 +1,70 @@
+<ion-header>
+  
+    <ion-title>
+      Phone
+    </ion-title>
+</ion-header>
+
+<ion-content class="container" [fullscreen]="true">
+
+<ion-item class="Screen-Container">
+  <ion-label class="Screen">{{Number}}</ion-label>
+</ion-item>
+
+  
+ <ion-grid  class="Number-Container">
+   <ion-row>
+     <ion-col></ion-col>
+     <ion-col></ion-col>
+     <ion-col><ion-button (click)="Clear_Number()" class="backspace" ><ion-icon name="backspace-outline"></ion-icon></ion-button></ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col><ion-button (click)="getvalue(1)"   class="btn">1</ion-button></ion-col>
+     <ion-col><ion-button (click)="getvalue(2)" class="btn">2</ion-button></ion-col>
+     <ion-col><ion-button (click)="getvalue(3)" class="btn">3</ion-button></ion-col>
+   </ion-row>
+   <ion-row>
+    <ion-col><ion-button (click)="getvalue(4)" class="btn">4</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue(5)" class="btn">5</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue(6)" class="btn">6</ion-button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-button (click)="getvalue(7)" class="btn">7</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue(8)" class="btn">8</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue(9)" class="btn">9</ion-button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-button (click)="getvalue('*')" class="btn">*</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue(0)" class="btn">0</ion-button></ion-col>
+    <ion-col><ion-button (click)="getvalue('#')" class="btn">#</ion-button></ion-col>
+  </ion-row>
+ </ion-grid>
+ 
+   <ion-grid class="Call-Button-Container">
+     <ion-row>
+       <ion-col></ion-col>
+       
+       <ion-col style="text-align: center;" > 
+         
+        <ion-button  (click)="call()"   class="Call-Button"><ion-icon class="phone-icon" name="call"></ion-icon></ion-button>
+      </ion-col>
+      
+       <ion-col></ion-col>
+     </ion-row>
+   </ion-grid>
+
+   <div class="segment-container">
+    <ion-segment [ngModel]="selectPage" color="success">
+      <ion-segment-button [routerLink]="['/home']"  value="Call">
+        <ion-label>Call</ion-label>
+      </ion-segment-button>
+      <ion-segment-button routerLink="Contact" [routerLink]="['/contact']" value="Contact">
+        <ion-label>Contact</ion-label>
+      </ion-segment-button>
+      <ion-segment-button routerLink="Message" [routerLink]="['/message']" value="Message">
+        <ion-label>Message</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+</ion-content>
